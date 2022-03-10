@@ -30,3 +30,24 @@ These commands will both create an unpacked app, and also an installer if you ke
 * Client Toast notifications
 * Toast and Navigation bar show when a new update is available
 * Automatically check for updates every 5 minutes
+
+## Web Server Update Config
+This is the only config I've done, so I'll discuss this. If you want to update by publishing to Github or other platforms, see the [electron.build](https://www.electron.build/) documentation.
+
+Configuration is done in `.electron-builder.config.js`.
+
+First off, create a directory on your webserver where you will serve the update files. Copy the URL to the update path, in this example we're gonna use `http://localhost:8080/myapp`. Change all instances of `http://UPDATEURL` in `.electron-builder.config.js` to `http://localhost:8080/myapp`. Next, set instances of `MyElectronApp` to your apps name.
+
+Now, run `yarn compile`.
+This will create `dist` directory with a variety of files. Each time we compile a new update of our app, we'll need to empty the contents of the `myapp` directory on the webserver and upload all the following files to it:
+
+* electrontemplate-Setup-##.#.##-####.exe
+* electrontemplate-Setup-##.#.##-####.blockmap
+* ####.yml (4 digits)
+* .icon-ico
+
+After uploading the files, you'll need to rename `####.yml` to `latest.yml`. After this, launch an older installed version of your app and you will recieve the update notification.
+
+**Note** The `electrontemplate-Setup-##.#.##-####.exe` file is the installer for your app! Distribute it to all!
+
+**WARNING** If you don't have a signing key for your app, people installing it will get a warning on Windows saying the file may not be trusted.
