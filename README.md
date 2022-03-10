@@ -27,3 +27,6 @@ These commands will both create an unpacked app, and also an installer if you ke
 * Client side command pallete(opened with Shift+C) with command auto-completeing(see `packages/main/commands`)
 * Includes SweetAlert2
 * Includes VueUse and Axios
+* Client Toast notifications
+* Toast and Navigation bar show when a new update is available
+* Automatically check for updates every 5 minutes
