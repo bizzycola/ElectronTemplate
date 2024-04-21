@@ -2,6 +2,9 @@
 Template for creating my electron apps from.
 Includes self-updating, basic controllers and event handling.
 
+## Archived
+The packages here are pretty outdated now, leaving archived, still a good reference for Vue3/TS/Tailwind and Electron. May contain reference to an old project I built this template out of, but not really an issue.
+
 ## Setup
 Fork the repository, and start by updating `.electron-builder.config.js` to setup your build config with installers and update config. For information regarding how to configure this to your liking, visit [https://www.electron.build/](https://www.electron.build/).
 
